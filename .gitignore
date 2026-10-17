@@ -1,0 +1,22 @@
+# ===== Secret files (NEVER upload) =====
+api.py
+.venv
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.ogg
+
+# ===== Virtual environments =====
+envbot/
+venv/
+env/
+
+# ===== Editor / IDE =====
+.vscode/
+.idea/
+
+# ===== OS files =====c
+.DS_Store
+Thumbs.db
