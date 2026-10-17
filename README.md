@@ -41,7 +41,7 @@ An automated WhatsApp Web chatbot that reads incoming chats, transcribes voice n
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/whatsapp-ai-chatbot.git
+   git clone https://github.com/rehan-ahmad10/whatsapp-ai-chatbot.git
    cd whatsapp-ai-chatbot
    ```
 
@@ -90,14 +90,17 @@ python main.py
 
 ```
 whatsapp-ai-chatbot/
-├── main.py              # Entry point — main loop & automation
-├── ai_process.py        # Groq GPT reply generation
-├── api_example.py       # Template for API key (copy → api.py)
-├── api.py               # Your real API key (NOT uploaded to GitHub)
-├── requirements.txt     # Python dependencies
-├── .gitignore           # Files Git should ignore
-├── *.jpg                # UI icon templates for PyAutoGUI
-└── README.md
+├── main.py              # Entry point — main loop only
+├── automation.py        # All UI automation
+├── transcribe.py        # Voice transcription
+├── ai_process.py        # AI reply generation
+├── api_example.py       # Template for API key
+├── api.py               # (gitignored — not on GitHub)
+├── requirements.txt
+├── .gitignore
+├── README.md
+└── assets/
+    └── (6 .jpg files)
 ```
 
 ---
