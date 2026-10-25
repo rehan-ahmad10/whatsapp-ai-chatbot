@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
         while True:
             stop += 1
-            if stop % 2 == 0:
+            if stop % 5 == 0:
                 option = pyautogui.confirm("Is you want to stop the program?")
                 if option == "OK":
                     break
