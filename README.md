@@ -1,130 +1,43 @@
 # WhatsApp AI Chatbot
 
-An automated WhatsApp Web chatbot that reads incoming chats, transcribes voice notes, and replies intelligently using the Groq API. It simulates human-like replies in Roman Urdu, acting as the user ("Rehan") in conversations.
-
----
+An automated WhatsApp Web chatbot that reads messages, transcribes voice notes, and generates natural Roman Urdu replies using Groq AI as Rehan.
 
 ## Features
-
-- Automatically opens Chrome and navigates WhatsApp Web
-- Reads the entire visible chat by dragging through the message history
-- Detects and downloads voice notes, then transcribes them using **Whisper Large v3** (via Groq)
-- Generates context-aware replies using **GPT-OSS-120B** (via Groq)
-- Replies only when the other person has sent a message (skips your own messages)
-- Fully automated using screen-based UI detection (no WhatsApp API required)
-
----
+- Automates Chrome and WhatsApp Web using PyAutoGUI.
+- Reads chat history and detects incoming messages.
+- Transcribes voice notes using Whisper Large v3.
+- Generates context-aware replies using GPT-OSS-120B.
+- Skips your own messages and automates replies.
 
 ## Tech Stack
-
-| Purpose | Library / Model |
-|--------|-----------------|
-| UI Automation | `pyautogui` |
-| Clipboard access | `pyperclip` |
-| AI replies | `groq` — `openai/gpt-oss-120b` |
-| Voice transcription | `groq` — `whisper-large-v3` |
-| Image detection | `opencv-python` (required by PyAutoGUI's `confidence` param) |
-
----
-
-## Requirements
-
-- Python 3.9+
-- Google Chrome installed
-- A free [Groq API key](https://console.groq.com/keys)
-- WhatsApp Web already logged in on Chrome
-- Screen resolution matched to the image templates (see *Note* below)
-
----
+- Python, PyAutoGUI, Pyperclip
+- Groq API, Whisper Large v3, GPT-OSS-120B
+- OpenCV
 
 ## Installation
-
-1. **Clone the repository**
+1. Clone the repository:
    ```bash
    git clone https://github.com/rehan-ahmad10/whatsapp-ai-chatbot.git
    cd whatsapp-ai-chatbot
    ```
-
-2. **Create a virtual environment (recommended)**
-   ```bash
-   python -m venv venv
-   # Windows
-   venv\Scripts\activate
-   # macOS / Linux
-   source venv/bin/activate
-   ```
-
-3. **Install dependencies**
+2. Create and activate a virtual environment.
+3. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-
-4. **Add your API key**
-   - Copy `api_example.py` and rename the copy to `api.py`
-   - Open `api.py` and replace `"YOUR_GROQ_API_KEY_HERE"` with your real key
-   ```python
-   groqapi = "gsk_xxxxxxxxxxxxxxxxxxxx"
-   ```
-
-5. **Log in to WhatsApp Web**
-   - Open Chrome, go to [web.whatsapp.com](https://web.whatsapp.com), and scan the QR code.
-   - Keep the chat window open with the conversation you want the bot to handle.
-
----
+4. Create `api.py` from `api_example.py` and add your Groq API key.
+5. Log in to WhatsApp Web using Chrome.
 
 ## Usage
-
-Run the bot:
-
+Run the chatbot:
 ```bash
 python main.py
 ```
 
-- The bot will detect the Chrome icon and open it.
-- It will read the current chat, respond to the latest message, and continue looping.
-- A confirmation dialog appears every 2 cycles asking if you want to stop the program.
+Keep the target chat open while the bot runs.
 
----
-
-## Project Structure
-
-```
-whatsapp-ai-chatbot/
-├── main.py              # Entry point — main loop only
-├── automation.py        # All UI automation
-├── transcribe.py        # Voice transcription
-├── ai_process.py        # AI reply generation
-├── api_example.py       # Template for API key
-├── api.py               # (gitignored — not on GitHub)
-├── requirements.txt
-├── .gitignore
-├── README.md
-└── assets/
-    └── (6 .jpg files)
-```
-
----
-
-## Note on Image Templates
-
-The bot relies on `.jpg` screenshots (`chrome_icon.jpg`, `voice_note_icon.jpg`, etc.) to detect UI elements on screen. If the bot fails to find them:
-
-- Ensure your display scaling is set to **100%**
-- Ensure Chrome is running at the same zoom level used when the screenshots were taken
-- Replace the `.jpg` files with your own screenshots if needed
-
----
-
-## Disclaimer
-
-This project is for **educational purposes only**.
-
-- Automating WhatsApp Web may violate [WhatsApp's Terms of Service](https://www.whatsapp.com/legal/terms-of-service) and could result in your account being restricted or banned.
-- The bot controls your mouse and keyboard while running — do not touch the mouse or keyboard while it is active.
-- Use at your own risk. The author is not responsible for any consequences (account bans, lost messages, etc.).
-
----
+## Note
+Screen automation depends on display scaling and image templates. Use responsibly, as automation may violate WhatsApp's Terms of Service.
 
 ## License
-
-This project is open-source and available under the [MIT License](https://opensource.org/licenses/MIT).
+MIT License
